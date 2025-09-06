@@ -6,6 +6,7 @@ using Luban.Utils;
 namespace Luban.Schema.Builtin;
 
 [SchemaLoader("", "xml")]
+[SchemaLoader("table", "xml")]
 public class XmlSchemaLoader : SchemaLoaderBase
 {
     private static readonly NLog.Logger s_logger = NLog.LogManager.GetCurrentClassLogger();
