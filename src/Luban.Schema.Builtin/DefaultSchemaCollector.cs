@@ -22,8 +22,17 @@ public class DefaultSchemaCollector : SchemaCollectorBase
             {
                 throw new Exception($"schema file:'{importFile.FileName}' has no extension. luban doesn't know how to load file without extension.");
             }
-            var schemaLoader = SchemaManager.Ins.CreateSchemaLoader(ext, importFile.Type, this);
-            schemaLoader.Load(importFile.FileName);
+            try
+            {
+                var schemaLoader = SchemaManager.Ins.CreateSchemaLoader(ext, importFile.Type, this);
+                schemaLoader.Load(importFile.FileName);
+            }
+            catch (Exception e)
+            {
+                //throw new Exception($"schema file:'{importFile.FileName}' ext name to lower failed", e);
+                s_logger.Warn(e, $"schema file:'{importFile.FileName}' load failed");
+                continue;
+            }
         }
 
         LoadTablesFromTableImporter();

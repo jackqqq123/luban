@@ -1,0 +1,78 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build-luban-release",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"src/Luban.sln",
+				"--configuration",
+				"Release"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "build-luban-debug",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"src/Luban.sln",
+				"--configuration",
+				"Debug"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "clean-luban",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"clean",
+				"src/Luban.sln"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "restore-luban",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"restore",
+				"src/Luban.sln"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "run-luban",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"run",
+				"--project",
+				"src/Luban/Luban.csproj"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		}
+	]
+}
